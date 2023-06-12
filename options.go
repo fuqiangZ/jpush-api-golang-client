@@ -44,6 +44,7 @@ type ThirdPartyOptions struct {
 	Inbox                 interface{} `json:"inbox,omitempty"`                  //厂商消息inbox样式, 目前支持华为厂商
 	BigPicPath            string      `json:"big_pic_path,omitempty"`           //厂商big_pic_path, 为了适配厂商的消息大图片样式,目前支持小米/oppo两个厂商
 	OnlyUseVendorStyle    bool        `json:"only_use_vendor_style,omitempty"`  //是否是否使用自身通道设置样式
+	TargetUserType        int         `json:"target_user_type,omitempty"`       //仅华为通道有效。0：普通消息（默认值）1：测试消息。每个应用每日可发送该测试消息 500 条且不受 每日单设备推送数量上限要求 。
 }
 
 type ThirdPartyChannel struct {
