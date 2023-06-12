@@ -23,7 +23,7 @@ JPush's Golang client library for accessing JPush APIs. 极光推送的 Golang �
 
 ## 使用
 
-`go get github.com/Scorpio69t/jpush-api-golang-client`
+`go get github.com/fuqiangZ/jpush-api-golang-client`
 
 ## 推送流程
 
