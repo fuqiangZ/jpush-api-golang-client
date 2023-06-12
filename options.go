@@ -47,9 +47,7 @@ type ThirdPartyOptions struct {
 	TargetUserType        int         `json:"target_user_type,omitempty"`       //仅华为通道有效。0：普通消息（默认值）1：测试消息。每个应用每日可发送该测试消息 500 条且不受 每日单设备推送数量上限要求 。
 }
 
-type ThirdPartyChannel struct {
-	channels map[string]ThirdPartyOptions
-}
+type ThirdPartyChannel map[string]ThirdPartyOptions
 
 // SetSendNo 设置消息的发送编号，用来覆盖推送时由 JPush 生成的编号。
 func (o *Options) SetSendNo(sendNo int) {
@@ -78,8 +76,8 @@ func (o *Options) SetBigPushDuration(bigPushDuration int) {
 
 // AddThirdPartyChannel 添加第三方渠道。
 func (o *Options) AddThirdPartyChannel(channel ThirdChannelType, value ThirdPartyOptions) {
-	if o.ThirdPartyChannel.channels == nil {
-		o.ThirdPartyChannel.channels = make(map[string]ThirdPartyOptions)
+	if o.ThirdPartyChannel == nil {
+		o.ThirdPartyChannel = make(map[string]ThirdPartyOptions)
 	}
-	o.ThirdPartyChannel.channels[channel.String()] = value
+	o.ThirdPartyChannel[channel.String()] = value
 }
